@@ -1,0 +1,25 @@
+{
+  // 指定js解析器
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6, // 定义ecma版本
+    "sourceType": "module" // 声明写代码方式为模块化
+  },
+  // 定义运行环境，如不配置browser为true则会报出window、document变量未定义的错误。同时需要配置node为true，因为项目基于webpack构建会用到node中的如process全局变量。
+  "env": {
+    "browser": true, // 声明执行在浏览器环境，防止报错没有dom变量
+    "node": true, // 声明es6代码
+    "es6": true // 声明node，防止报错没有node变量
+  },
+  "extends": [
+    "airbnb",
+    // 如果eslint的规则于prettier的规则冲突，这个插件会让eslint的规则失效，以prettier的规则为准
+    // 所以这些冲突的规则只需要在prettier中定义就行了，下面的rules里面不需要重新写一遍了
+    "plugin:prettier/recommended"
+  ], // 运用airbnb规则，标准规则为standard
+  // 自定义规则
+  "rules": {
+    "semi": [0], // 是否对结尾分号进行检测 -- 0为不检测
+    "react/jsx-filename-extension": [0]
+  }
+}
